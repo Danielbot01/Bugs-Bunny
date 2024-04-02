@@ -81,7 +81,7 @@ global.loadDatabase = async function loadDatabase() {
 };
 loadDatabase();
 
-/* Creditos a Otosaka (https://wa.me/51993966345) */
+/* Creditos a Otosaka (https://wa.me/527299350963) */
 
 global.chatgpt = new Low(new JSONFile(path.join(__dirname, '/db/chatgpt.json')));
 global.loadChatgptDB = async function loadChatgptDB() {
@@ -142,7 +142,7 @@ const connectionOptions = {
 logger: pino({ level: 'silent' }),
 printQRInTerminal: opcion == '1' ? true : methodCodeQR ? true : false,
 mobile: MethodMobile, 
-browser: opcion == '1' ? ['TheMystic-Bot-MD', 'Safari', '2.0.0'] : methodCodeQR ? ['TheMystic-Bot-MD', 'Safari', '2.0.0'] : ['Ubuntu', 'Chrome', '110.0.5585.95'],
+browser: opcion == '1' ? ['Bugs Bunny', 'Safari', '2.0.0'] : methodCodeQR ? ['Bugs Bunny', 'Safari', '2.0.0'] : ['Ubuntu', 'Chrome', '110.0.5585.95'],
 auth: {
 creds: state.creds,
 keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: "fatal" }).child({ level: "fatal" })),
@@ -176,17 +176,17 @@ let numeroTelefono
 if (!!phoneNumber) {
 numeroTelefono = phoneNumber.replace(/[^0-9]/g, '')
 if (!Object.keys(PHONENUMBER_MCC).some(v => numeroTelefono.startsWith(v))) {
-console.log(chalk.bgBlack(chalk.bold.redBright("Comience con el código de país de su número de WhatsApp.\nEjemplo: +525625060788\n")))
+console.log(chalk.bgBlack(chalk.bold.redBright("Comience con el código de país de su número de WhatsApp.\nEjemplo: +527299350963\n")))
 process.exit(0)
 }} else {
 while (true) {
-numeroTelefono = await question(chalk.bgBlack(chalk.bold.yellowBright('Por favor, escriba su número de WhatsApp.\nEjemplo: +525625060788\n')))
+numeroTelefono = await question(chalk.bgBlack(chalk.bold.yellowBright('Por favor, escriba su número de WhatsApp.\nEjemplo: +527299350963\n')))
 numeroTelefono = numeroTelefono.replace(/[^0-9]/g, '')
 
 if (numeroTelefono.match(/^\d+$/) && Object.keys(PHONENUMBER_MCC).some(v => numeroTelefono.startsWith(v))) {
 break 
 } else {
-console.log(chalk.bgBlack(chalk.bold.redBright("Por favor, escriba su número de WhatsApp.\nEjemplo: +525625060788.\n")))
+console.log(chalk.bgBlack(chalk.bold.redBright("Por favor, escriba su número de WhatsApp.\nEjemplo: +527299350963.\n")))
 }}
 rl.close()  
 } 
@@ -373,23 +373,23 @@ global.reloadHandler = async function(restatConn) {
     isInit = true;
   }
   if (!isInit) {
-    conn.ev.off('messages.upsert', conn.handler);
-    conn.ev.off('group-participants.update', conn.participantsUpdate);
-    conn.ev.off('groups.update', conn.groupsUpdate);
-    conn.ev.off('message.delete', conn.onDelete);
-    conn.ev.off('call', conn.onCall);
-    conn.ev.off('connection.update', conn.connectionUpdate);
-    conn.ev.off('creds.update', conn.credsUpdate);
-  }
+   conn.ev.off('messages.upsert', conn.handler);
+   conn.ev.off('group-participants.update', conn.participantsUpdate);
+   conn.ev.off('groups.update', conn.groupsUpdate);
+   conn.ev.off('message.delete', conn.onDelete);
+   conn.ev.off('call', conn.onCall);
+   conn.ev.off('connection.update', conn.connectionUpdate);
+   conn.ev.off('creds.update', conn.credsUpdate);
+}
 
-  conn.welcome = '👋 ¡Bienvenido/a!\n@user espero que te guste el grupo :3';
-  conn.bye = '👋 ¡Hasta luego!\n@user lamentamos que el grupo no fuera de tu agrado';
-  conn.spromote = '*[ ℹ️ ] @user Fue agregado a administrador.*';
-  conn.sdemote = '*[ ℹ️ ] @user Fue eliminado de administrador.*';
-  conn.sDesc = '*[ ℹ️ ] La descripción del grupo ha sido modificada.*';
-  conn.sSubject = '*[ ℹ️ ] El nombre del grupo ha sido modificado.*';
-  conn.sIcon = '*[ ℹ️ ] Se ha cambiado la foto de perfil del grupo.*';
-  conn.sRevoke = '*[ ℹ️ ] El enlace de invitación al grupo ha sido restablecido.*';
+     conn.welcome = lenguajeGB['smsWelcome']() 
+     conn.bye = lenguajeGB['smsBye']() 
+     conn.spromote = lenguajeGB['smsSpromote']() 
+     conn.sdemote = lenguajeGB['smsSdemote']() 
+     conn.sDesc = lenguajeGB['smsSdesc']() 
+     conn.sSubject = lenguajeGB['smsSsubject']() 
+     conn.sIcon = lenguajeGB['smsSicon']() 
+     conn.sRevoke = lenguajeGB['smsSrevoke']() 
 
   conn.handler = handler.handler.bind(global.conn);
   conn.participantsUpdate = handler.participantsUpdate.bind(global.conn);
@@ -398,7 +398,6 @@ global.reloadHandler = async function(restatConn) {
   conn.onCall = handler.callUpdate.bind(global.conn);
   conn.connectionUpdate = connectionUpdate.bind(global.conn);
   conn.credsUpdate = saveCreds.bind(global.conn, true);
-
   const currentDateTime = new Date();
   const messageDateTime = new Date(conn.ev);
   if (currentDateTime >= messageDateTime) {

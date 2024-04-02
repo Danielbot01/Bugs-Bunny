@@ -22,11 +22,11 @@ const handler = async (m, { conn, usedPrefix }) => {
   const old = performance.now();
   const neww = performance.now();
   const rtime = (neww - old).toFixed(7);
-  const wm = 'The Mystic Bot';
+  const wm = 'Bugs Bunny';
   const info = ` _*< INFO - ESTADO />*_
 
- ▢ *Prop.:* Anthony Mendivil
- ▢ *WA:* +525625060788
+ ▢ *Prop.:* Bugs Bunny
+ ▢ *WA:* +527299350963
 
  ▢ *Ping:* ${rtime}
  ▢ *Uptime:* ${uptime}
@@ -65,13 +65,13 @@ const handler = async (m, { conn, usedPrefix }) => {
       forwardingScore: 200,
       isForwarded: true,
       externalAdReply: {
-        mediaUrl: "https://github.com/anthony2303/capibot",
+        mediaUrl: "https://github.com/Danielbot01/bugs",
         mediaType: 2,
         previewType: "pdf",
-        title: "Capibot Premium",
+        title: "Bugs Bunny",
         body: "Whatsapp",
         thumbnail: imagen1,
-        sourceUrl: "wa.me/525625060788",
+        sourceUrl: "wa.me/527299350963",
       },
     },
     caption: info,

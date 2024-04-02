@@ -42,7 +42,31 @@ const handler = async (m, {conn, usedPrefix, usedPrefix: _p, __dirname, text, is
   🐰🥕  _${usedPrefix}menuanimes_
   🐰🥕  _${usedPrefix}labiblia_ (🔞)
 
- 
+
+         ◉— _*LISTADO DE VS*_ —◉
+  
+  🐰🥕  _${usedPrefix}4vs4_
+  🐰🥕  _${usedPrefix}6vs6_
+  🐰🥕  _${usedPrefix}8vs8_ 
+  🐰🥕  _${usedPrefix}12vs12_
+  🐰🥕  _${usedPrefix}16vs16_
+  🐰🥕  _${usedPrefix}scrimlist_
+  🐰🥕  _${usedPrefix}cuadrilist_
+  🐰🥕  _${usedPrefix}hexalist_
+
+
+        ◉— _*MAPAS*_ —◉
+        
+  🐰🥕  _${usedPrefix}exagonal_
+  🐰🥕  _${usedPrefix}cuadrilatero_
+  🐰🥕  _${usedPrefix}bermuda_
+  🐰🥕  _${usedPrefix}purgatorio_
+  🐰🥕  _${usedPrefix}kalahari
+
+
+        ◉— _*REGLAS*_ —◉
+        
+  🐰🥕  _${usedPrefix}Clk_
 
          ◉— _*JUEGOS*_ —◉
 

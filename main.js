@@ -374,22 +374,22 @@ global.reloadHandler = async function(restatConn) {
   }
   if (!isInit) {
    conn.ev.off('messages.upsert', conn.handler);
-   conn.ev.off('group-participants.update', conn.participantsUpdate);
-   conn.ev.off('groups.update', conn.groupsUpdate);
-   conn.ev.off('message.delete', conn.onDelete);
-   conn.ev.off('call', conn.onCall);
-   conn.ev.off('connection.update', conn.connectionUpdate);
-   conn.ev.off('creds.update', conn.credsUpdate);
-}
+    conn.ev.off('group-participants.update', conn.participantsUpdate);
+    conn.ev.off('groups.update', conn.groupsUpdate);
+    conn.ev.off('message.delete', conn.onDelete);
+    conn.ev.off('call', conn.onCall);
+    conn.ev.off('connection.update', conn.connectionUpdate);
+    conn.ev.off('creds.update', conn.credsUpdate);
+  }
 
-     conn.welcome = lenguajeGB['smsWelcome']() 
-     conn.bye = lenguajeGB['smsBye']() 
-     conn.spromote = lenguajeGB['smsSpromote']() 
-     conn.sdemote = lenguajeGB['smsSdemote']() 
-     conn.sDesc = lenguajeGB['smsSdesc']() 
-     conn.sSubject = lenguajeGB['smsSsubject']() 
-     conn.sIcon = lenguajeGB['smsSicon']() 
-     conn.sRevoke = lenguajeGB['smsSrevoke']() 
+  conn.welcome = '👋 ¡Bienvenido/a!\n@user espero que te guste el grupo :3';
+  conn.bye = '👋 ¡Hasta luego!\n@user lamentamos que el grupo no fuera de tu agrado';
+  conn.spromote = '*[ ℹ️ ] @user Fue agregado a administrador.*';
+  conn.sdemote = '*[ ℹ️ ] @user Fue eliminado de administrador.*';
+  conn.sDesc = '*[ ℹ️ ] La descripción del grupo ha sido modificada.*';
+  conn.sSubject = '*[ ℹ️ ] El nombre del grupo ha sido modificado.*';
+  conn.sIcon = '*[ ℹ️ ] Se ha cambiado la foto de perfil del grupo.*';
+  conn.sRevoke = '*[ ℹ️ ] El enlace de invitación al grupo ha sido restablecido.*';
 
   conn.handler = handler.handler.bind(global.conn);
   conn.participantsUpdate = handler.participantsUpdate.bind(global.conn);
@@ -398,6 +398,7 @@ global.reloadHandler = async function(restatConn) {
   conn.onCall = handler.callUpdate.bind(global.conn);
   conn.connectionUpdate = connectionUpdate.bind(global.conn);
   conn.credsUpdate = saveCreds.bind(global.conn, true);
+
   const currentDateTime = new Date();
   const messageDateTime = new Date(conn.ev);
   if (currentDateTime >= messageDateTime) {
